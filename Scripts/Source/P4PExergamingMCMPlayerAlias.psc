@@ -168,9 +168,9 @@ function doLevelUp(int health, int stamina, int magicka)
 	Actor player = Game.getPlayer()
 	int currentLevel = player.getLevel()
 	int carryCapacityUp = (stamina/2)  	;The division function is not working. this seems to work okay as the numbers are whole and simple.
-	player.modActorValue("health", health)
-	player.modActorValue("stamina", stamina)
-	player.modActorValue("magicka", magicka)
+	player.SetActorValue("health", player.GetBaseActorValue("health") + health)
+	player.SetActorValue("stamina", player.GetBaseActorValue("stamina") + stamina)
+	player.SetActorValue("magicka", player.GetBaseActorValue("magicka") + magicka)
 	player.ModActorValue("CarryWeight", carryCapacityUp) ;Added to increase carry weight proportionally with stamina as in the vanilla version
 	Game.setPlayerLevel(currentLevel + 1)
 	currentLevel = player.getLevel()
